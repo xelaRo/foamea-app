@@ -1,9 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
 import './App.scss';
 import Header from './components/header/header.component'
-import { Container, Row } from 'react-bootstrap';
-import Background from './components/background/background.component'
+import { Switch, Route, Redirect } from 'react-router-dom'
+import MainPage from './pages/mainpage/mainpage.component'
+
 
 class App extends React.Component{
   constructor(){
@@ -12,21 +12,12 @@ class App extends React.Component{
 
   render(){
     return(
-
-      <div>
-          <Header />
-          <Container >
-            <Background />
-          </Container>
-         
-
-        <Container>
-        <h1>Foameea</h1>
-        </Container>
-      </div>
-        
-
-        
+      <React.Fragment>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={MainPage} />
+        </Switch>
+      </React.Fragment>
     )
   }
 }
